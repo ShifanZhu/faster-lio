@@ -792,6 +792,8 @@ void LaserMapping::Savetrajectory(const std::string &traj_file) {
 
     ofs << "#timestamp x y z q_x q_y q_z q_w" << std::endl;
     for (const auto &p : path_.poses) {
+        // tf2::Transform p_tf;
+        // tf2::fromMsg(p, p_tf);
         ofs << std::fixed << std::setprecision(6) << p.header.stamp.toSec() << " " << std::setprecision(15)
             << p.pose.position.x << " " << p.pose.position.y << " " << p.pose.position.z << " " << p.pose.orientation.x
             << " " << p.pose.orientation.y << " " << p.pose.orientation.z << " " << p.pose.orientation.w << std::endl;
